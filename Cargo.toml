@@ -1,0 +1,10 @@
+[workspace]
+resolver = "2"
+
+members = ["day-*"]
+default-members = ["day-*"]
+
+[workspace.dependencies]
+anyhow = "1"
+regex = "1.11"
+glam = "0.29"
