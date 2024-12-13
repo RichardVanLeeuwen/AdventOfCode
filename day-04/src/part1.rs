@@ -26,7 +26,26 @@ pub fn process(input: &str) -> Result<String> {
         .collect::<HashMap<IVec2, char>>();
 
     let mas = ['M', 'A', 'S'];
-    let result = positions.iter().filter(|(_, value)| **value == 'X');
+    let result: usize = positions
+        .iter()
+        .filter(|(_, value)| **value == 'X')
+        .map(|(position, _value)| {
+            DIRECTIONS
+                .iter()
+                .map(|direction| {
+                    let mut all_true = true;
+                    for (index, offset) in direction.iter().enumerate() {
+                        if positions.get(&(position + offset)) != mas.get(index) {
+                            all_true = false;
+                            break;
+                        }
+                    }
+                    all_true
+                })
+                .filter(|b| *b)
+                .count()
+        })
+        .sum();
 
     Ok(result.to_string())
 }

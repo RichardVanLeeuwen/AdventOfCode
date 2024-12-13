@@ -3,13 +3,12 @@ use regex::Regex;
 
 pub fn process(input: &str) -> Result<String> {
     let mut result: i32 = 0;
-    let mul_reg = Regex::new(r"mul\(\d+,\d+\)").unwrap();
-    let num_regex = Regex::new(r"\d+").unwrap();
-    let mul_matches = mul_reg.find_iter(input);
-    for mul_match in mul_matches {
-        let product: i32 = num_regex
-            .find_iter(mul_match.as_str())
-            .map(|num| num.as_str().parse::<i32>().unwrap())
+    let mul_reg = Regex::new(r"mul\((\d+),(\d+)\)").unwrap();
+    let mul_matches = mul_reg.captures_iter(input);
+    for capture in mul_matches {
+        let product: i32 = capture
+            .iter()
+            .map(|num| num.unwrap().as_str().parse::<i32>().unwrap_or(1))
             .product();
         result += product;
     }
