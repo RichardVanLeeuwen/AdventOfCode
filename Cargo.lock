@@ -94,6 +94,46 @@ dependencies = [
 ]
 
 [[package]]
+name = "day-11"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+]
+
+[[package]]
+name = "day-12"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "glam",
+]
+
+[[package]]
+name = "day-13"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "regex",
+]
+
+[[package]]
+name = "day-14"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "glam",
+ "regex",
+]
+
+[[package]]
+name = "day-15"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "glam",
+]
+
+[[package]]
 name = "glam"
 version = "0.29.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
